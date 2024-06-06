@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AliceNeural</name>
+    </assembly>
+    <members>
+        <member name="M:AliceNeural.MainPage.ConfigureContinuousIntentPatternMatchingWithMicrophoneAsync(Microsoft.CognitiveServices.Speech.SpeechConfig,Microsoft.CognitiveServices.Speech.Intent.ConversationalLanguageUnderstandingModel,Microsoft.CognitiveServices.Speech.Intent.LanguageUnderstandingModelCollection,AliceNeural.Utils.TaskCompletionSourceManager{System.Int32})">
+            <summary>
+            
+            </summary>
+            <param name="config"></param>
+            <param name="cluModel"></param>
+            <param name="patternMatchingModelCollection"></param>
+            <param name="stopRecognitionManager"></param>
+            <returns>una tupla contentente nell'ordine un intent recognizer basato su Patter Matching, un sintetizzatore vocale e un intent recognizer basato su un modello di Conversational Language Understanding </returns>
+        </member>
+        <member name="M:AliceNeural.Utils.Meteo.Meteo.Display(System.Object,System.String)">
+            <summary>
+            Stampa value se questo non è nullo. Nel caso in cui value sia nullo stampa stringIfNull. Se stringIfNull è null viene usata string.Empty
+            </summary>
+            <param name="value">Valore da stampare</param>
+            <param name="stringIfNull">Stringa da usare se value è null</param>
+            <returns>Restituisce una stringa da stampare</returns>
+        </member>
+        <member name="M:AliceNeural.Utils.Meteo.Meteo.UnixTimeStampToDateTime(System.Nullable{System.Double})">
+            <summary>
+            https://stackoverflow.com/questions/249760/how-can-i-convert-a-unix-timestamp-to-datetime-and-vice-versa
+            https://stackoverflow.com/a/250400
+            https://www.epochconverter.com/
+            </summary>
+            <param name="unixTimeStamp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AliceNeural.Utils.Meteo.Meteo.GeocodeByOpenMeteo(System.Net.Http.HttpClient,System.String,System.String,System.Int32)">
+            <summary>
+            Geolocalizza un indirizzo con i parametri forniti, usando il servizio di geolocalizzazione di open-meteo
+            https://open-meteo.com/en/docs/geocoding-api
+            </summary>
+            <param name="client">l'HttpClient utilizzato per effettuare le richieste all'endpoint delle api di geolocalizzazione </param>
+            <param name="name">nome della località</param>
+            <param name="language">lingua in cui viene presentato il risultato. Codice di due lettere</param>
+            <param name="count">Numero di risultati restituiti. Il valore massimo è 100 e il minimo è 1</param>
+            <returns></returns>
+        </member>
+        <member name="M:AliceNeural.Utils.Meteo.Meteo.WMOCodesInt(System.Nullable{System.Int32})">
+            <summary>
+            Restituisce la descrizione testuale della previsione meteo a partire dal codice di previsione
+            </summary>
+            <param name="code">Codice di previsione meteo</param>
+            <returns></returns>
+        </member>
+        <member name="M:AliceNeural.Utils.Meteo.Meteo.WMOCodesIntIT(System.Nullable{System.Int32})">
+            <summary>
+            Restituisce la descrizione testuale della previsione meteo a partire dal codice di previsione in italiano
+            </summary>
+            <param name="code">Codice di previsione meteo</param>
+            <returns></returns>
+        </member>
+        <member name="M:AliceNeural.Utils.WikitextHelper.WikiTextToReadableText(System.String)">
+            <summary>
+            Converte un testo in formato wikitext in testo leggibile
+            </summary>
+            <param name="wikitext">Il wikitext in input</param>
+            <returns>La stringa corrispondente al testo leggibile</returns>
+        </member>
+        <member name="M:AliceNeural.Utils.WikitextHelper.WikiTextToReadableTextArray(System.String)">
+            <summary>
+            Converte un testo in formato wikitext in testo leggibile. 
+            Per ogni linea nel wikitext viene restituita una stringa risultato.
+            A differenza del metodo WikiTextToReadableText, questo restituisce un array di stringhe
+            </summary>
+            <param name="wikitext">Il wikitext in input</param>
+            <returns>Un array di stringhe, ciascuna con testo leggibile. Ogni stringa restituita corrisponde a una linea all'interno del AST (Abstract Syntax Tree) del wikitext parser</returns>
+        </member>
+        <member name="M:AliceNeural.Utils.WikitextHelper.WikiTextToReadableTextNoSpace(System.String)">
+            <summary>
+            Converte un testo in formato wikitext in testo leggibile. Vengono rimossi gli spazi corrispondenti a new line
+            </summary>
+            <param name="wikitext">Il wikitext in input</param>
+            <returns>La stringa corrispondente al testo leggibile</returns>
+        </member>
+        <member name="M:AliceNeural.Utils.WikitextHelper.SplitOnPeriod(System.String)">
+            <summary>
+            Effettua lo split di una stringa di testo in un array di stringhe, usando il punto come separatore. 
+            Il punto non è rimosso dal risultato
+            </summary>
+            <param name="text">Testo che si vuole suddividere in più stringhe</param>
+            <returns>Array di stringhe ottenuto facendo lo split sul punto</returns>
+        </member>
+        <member name="T:HttpProxyControl.HttpProxyHelper">
+            Richiede: 
+            1) using Microsoft.Win32;
+            2) using System.Runtime.InteropServices;
+            3) using System.Net;
+        </member>
+        <member name="M:HttpProxyControl.HttpProxyHelper.GetHttpClientProxy">
+            <summary>
+              
+            Restituisce il proxy attualmente in uso (se presente)
+            Il proxy è un Uri nella forma proxy_address:proxy_port
+            </summary>
+            <returns>Il proxy attualmente in uso. Restituisce null se nessun proxy è in uso</returns>
+        </member>
+        <member name="M:HttpProxyControl.HttpProxyHelper.CreateHttpClient(System.Boolean)">
+            <summary>
+            Restituisce un oggetto HttpClient con un handler per gestire il proxy, se impostato.
+            Se il proxy non è impostato restituisce un HttpClient senza handler per proxy
+            </summary>
+            <param name="setProxy">true se si vuole impostare un handler per il proxy; false se si vuole un HttpClient senza handler per il proxy. 
+            Funziona solo per Windows. Per gli altri OS dove è supportato MAUI setProxy non ha effetto</param>
+            <returns>un oggetto HttpProxy con handler per gestire il proxy</returns>
+        </member>
+        <member name="M:HttpProxyControl.HttpProxyHelper.GetHttpClientProxyParams">
+            <summary>
+            Restituisce i parametri del proxy attualmente in uso, altrimenti null
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

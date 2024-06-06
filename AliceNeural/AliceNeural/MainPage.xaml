@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AliceNeural.MainPage"
+             Loaded="ContentPage_Loaded">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+
+            <Image
+                Source="alice_image.png" 
+                SemanticProperties.Description="Image with the text ALICE"
+                HeightRequest="120"
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
+
+                <Label x:Name="RecognitionText"
+                   FontSize="Medium"
+                   TextColor="White"
+                   HeightRequest="300"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Text="Welcome! Tap the button to start speech recognition." />
+
+                <Frame
+                WidthRequest="100"
+                HeightRequest="100"
+                CornerRadius="50"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                BackgroundColor="#0078D7"
+                HasShadow="True">
+                    <ImageButton
+                    x:Name="RecognizeSpeechBtn"
+                    Source="microphone_icon.png"
+                    SemanticProperties.Hint="Starts speech recognition using Speech SDK"
+                    Clicked="OnRecognitionButtonClicked2"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                </Frame>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
